@@ -4,13 +4,15 @@
 # About
 We present VideoRun2D, a new markerless biomechanic sprint analysis system based on deep learning models. mEBAL is a database which is initially introduced in [arXiv technical report]() and then accepted by the [Conference sended](). 
 
-Our proposed VideoRun2D performs markerless body tracking and estimates the joint angles of each user during a sprint. To achieve effective estimation, the VideoRun2D system comprises five processing modules: video pre-processing, tracking of the articular points, tracking post-processing, biomechanical features generation, and a validation system that employs statistical analysis. Figure [1](./media/Diagrama.png) shows a diagram of the proposed VideoRun2D system.
-
-
 
 https://github.com/user-attachments/assets/de87e72c-eb38-419e-bee8-2c8f09b4525c
 
 
+Our proposed VideoRun2D performs markerless body tracking and estimates the joint angles of each user during a sprint. To achieve effective estimation, the VideoRun2D system comprises five processing modules: video pre-processing, tracking of the articular points, tracking post-processing, biomechanical features generation, and a validation system that employs statistical analysis. 
+
+Figure [1](./media/Diagrama.png) shows a diagram of the proposed VideoRun2D system.
+
+![1](./media/Diagrama.png)
 
 # Motivation
 
@@ -28,6 +30,8 @@ The sprints were recorded using a video camera Panasonic DMC FZ-1000 with a reso
 ## Ground truth based on manual labeling (Kinovea)
 
 Three experts previously trained manually marked all the images using the freeware Kinovea (version 0.9.5); these marks are used as ground truth. The main instruction given to the experts was to mark the different points on the joint centers (shoulder, hip, knee, and ankle). Figure Figure [2](./media/JointPoints.png) shows each location of the joint point marked manually. 
+
+![2](./media/JointPoints.png)
 
 For the body parts covered by other segments, the experts were instructed to mark the anatomical points as if the different body parts covering others were transparent. These points were marked in every frame of each video. When all the frames were labeled, the trajectory of each joint was revised to find and correct possible marking mistakes.
 
