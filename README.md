@@ -6,7 +6,11 @@ We present VideoRun2D, a new markerless biomechanic sprint analysis system based
 
 Our proposed VideoRun2D performs markerless body tracking and estimates the joint angles of each user during a sprint. To achieve effective estimation, the VideoRun2D system comprises five processing modules: video pre-processing, tracking of the articular points, tracking post-processing, biomechanical features generation, and a validation system that employs statistical analysis. Figure [1](./media/Diagrama.png) shows a diagram of the proposed VideoRun2D system.
 
-<video controls src="./media/VideoExample_1.mp4" title="VideoRun2D_Example"></video>
+
+
+https://github.com/user-attachments/assets/de87e72c-eb38-419e-bee8-2c8f09b4525c
+
+
 
 # Motivation
 
