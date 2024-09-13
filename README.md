@@ -2,107 +2,39 @@
 
 ***
 # About
-We present mEBAL [1], a multimodal database for eye blink detection and attention level estimation. mEBAL is a database which is initially introduced in [arXiv technical report](https://arxiv.org/abs/2006.05327v2) and then accepted by the [22nd ACM International Conference on Multimodal Interaction](http://icmi.acm.org/2020/). 
+We present VideoRun2D, a new markerless biomechanic sprint analysis system based on deep learning models. mEBAL is a database which is initially introduced in [arXiv technical report]() and then accepted by the [Conference sended](). 
 
-The eye blink frequency is related to the cognitive activity and automatic detectors of eye blinks have been proposed for many tasks including attention level estimation, analysis of neuro-degenerative diseases, deception recognition, drive fatigue detection, or face anti-spoofing. However, most existing databases and algorithms in this area are limited to experiments involving only a few hundred samples and individual sensors like face cameras. 
+Our proposed VideoRun2D performs markerless body tracking and estimates the joint angles of each user during a sprint. To achieve effective estimation, the VideoRun2D system comprises five processing modules: video pre-processing, tracking of the articular points, tracking post-processing, biomechanical features generation, and a validation system that employs statistical analysis. Figure [1](./media/Diagrama.png) shows a diagram of the proposed VideoRun2D system.
 
-The proposed mEBAL improves previous databases in terms of numbers samples in eye blink and cognitive information available.  In particular, **three different sensors** are simultaneously considered: **Near Infrared (NIR)** and **RGB cameras** to capture the face gestures and an **Electroencephalography (EEG) band** to capture the cognitive activity of the user and blinking events.
-
-Regarding the size of mEBAL, it comprises **3,000 blink samples** and the corresponding **attention level** from **38 different students** while conducting a number of e-learning tasks of varying difficulty.**This information is avalible on this web [[Download Database](#instructions-for-downloading-mEBAL)].**
-
-The following table shows the sensors and the information captured:
-
-![Sin titulo](http://atvs.ii.uam.es/atvs/github/mEBAL/Table1.jpg)
-<br/>The following sections describe the motivation, the activities designed, the sensors, the public database and share mEBAL database with the community to advance in this area:
+<video controls src="./media/VideoExample_1.mp4" title="VideoRun2D_Example"></video>
 
 # Motivation
 
-The main motivation  of this work is  **the improvement of the virtual education** using e-learnig platforms. Virtual education technologies are growing up, with a market reaching a turnover around 240.000 million dollars. 
-**E-learning platforms** are important tools to get high quality online education. They allow to capture student information to better understand the student behavior and conditions and this information can be used to create personalized environments. Information such as the heart rate [2], the emotional state, or the **cognitive activity** can be used to improve e-learning platforms.
-Undoubtedly, e-learning platforms will benefit significantly by exploiting the **attention level** of the student. This could be used to: **i)** adapt dynamically the environment and content  based on the attention level, and **ii)** improve the educational materials and resources with a posterior analysis of the e-learning sessions (e.g. detecting the type of contents more appropriate for a specific student).
-
-**Since the 70s there are studies relating the eye blink rate with cognitive activity like attention**. The studies suggest that **lower eye blink rates** can be associated to **high attention** periods while **higher eye blink rates** are related to **low attention levels**. Therefore, in this context, automatic eye blink detection can be a tool for estimating the attention level of the students and improving e-learning platforms.
-
-For this reasons, we hope that mEBAL will be valuable to the scientific community thanks to the multimodal nature: **Cognitive Activity and Eye Blink detection**.
-
-
-# Tasks
-
-
-The activities designed to conform the database consist of 8 different tasks that can be categorized in the following three groups:
- 
- - **Enrollment form:** name and surname, ID number, nationality, e-mail address, etc. (low level of attention is expected);
- 
- - **Writing questions:** these questions are oriented to measure the students’ cognitive abilities under different situations such as solving logical problems, describing images, crosswords, finding differences, etc. (increasing level of attention is expected)
- 
- - **Multiple choice questions:** aimed to detect the students’ attention and focus levels (high level of attention is expected).
-
-The questions are selected from popular riddles and they present different levels of difficulty. The interface is designed to ensure data from different nature: free text typing (writing questions), fixed text typing (enrollment form), mouse movement (multiple choice questions), visual attention (describing images and finding differences), etc.
-
-
-
-# Sensors
-
-   We designed a multimodal acquisition framework to monitor cognitive and eye blink activity during the execution of online tasks based on the [edBB platform](https://github.com/BiDAlab/edBBdb) [3] for remote education assessment:
-   
-![Sin titulo](http://atvs.ii.uam.es/atvs/github/mEBAL/Framework_mEBAL2.jpg)
-
-   The acquisition setup consisted of the next components: 
-
-   - An **EEG headset** by NeuroSky that captures 5 channels of electroencephalographic information **(𝛼, 𝛽,𝛾, 𝛿, 𝜃)**. These signals provide temporal information related to the cognitive activity of the student. The sensor also provides a temporal sequence with the eye blink strength. The sampling rate of the band is 1 Hz. The EEG band is used to capture the **cognitive activity of the student** and **the eye blink candidates**. **We have made a manual refinement of these eye blink candidates detected by the band to eliminate false positives**. These refined eye blinks will be used as eye blink groundtruth.
-  
-   - An **Intel RealSense** (model D435i), which comprises **1 RGB** and **2 NIR cameras**. It is  configured to 30 Hz, one frame every 33ms. It's known that an average blink takes 100ms to 400ms, therefore, an eye blink can take between 3 to 13 frames.
-  
-We used facial landmark detection to track the eyes position and classify the images as blink or no-blink based on the eye blink groundtruth.
-
+Sprinting is a determinant ability, especially in team sports. The kinematics of the sprint have been studied in the past using different methods specially developed considering human biomechanics and, among those methods, markerless systems stand out as very cost-effective. On the other hand, we have now multiple general methods for pixel and body tracking based on recent machine learning breakthroughs with excellent performance in body tracking, but these excellent trackers do not generally consider realistic human biomechanics (like the ones considered in support for professional sports or injury rehabilitation). This investigation first adapts two of these general trackers (MoveNet and CoTracker) for realistic biomechanical analysis and then evaluate them as methods in comparison to manual labeling one (Kinovea). 
 
 
 # Database
 
-mEBAL comprises a total of 3,000 blink samples from both eyes acquired with 1 RGB and 2 NIR cameras. Each sample comprises 19 frames (around 600 ms.) for a total number of images of **342,000** (3,000 × 19 × 2 × 3). Aspects such as the user position and changes in the illumination were considered during the acquisition in order to simulate realistic e-learning scenarios. 11 out of the 38 students used glasses.
+## Data adquisition
 
-mEBAL was collected in a constrained environment, but it is rich in pose, illumination changes, and other naturally-occurring factors. It can be seen in the next figure:
-![Sin titulo](http://atvs.ii.uam.es/atvs/github/mEBAL/Examples_Blink3.jpg)
+Five healthy amateur soccer players are analyzed (23±3.74 years old, 77.2±6.8 kg weight, 181.8±6.3 cm height). All of them signed an informed consent. The investigation was approved by the Ethics Committee of the University following the Declaration of Helsinki.
 
+The sprints were recorded using a video camera Panasonic DMC FZ-1000 with a resolution of $1920\times1080$p and recorded at 100 fps in two different outdoor scenarios. Each subject performed eight sprints of 20m while the camera recorded between the 5th and 15th m. The camera was placed 10 m from the middle point of the sprint. All the players sprinted with football boots on a natural grass field. Between each sprint, the players had 5 minutes of rest. A total of 40 sprints and 240 running strides were generated.
 
-The mEBAL dataset was obtained from the **raw data provided in the [edBBdb](https://github.com/BiDAlab/edBBdb)** [3]. The eye blink and attention level information was labelled following a semi-supervised method. First, eye blink candidates were selected using the EEG band signals (eye blink strength is an attribute provided by the EEG band SDK). Second, we made a manual refinement of the eye blink samples detected by the band to eliminate false positives. Once the eye blink samples were validated, we stored the 9 frames previous and posterior to the eye blink event (19 frames in total for each eye blink). These frames can be used to exploit the temporal information proposed in some approaches of the literature. Finally, we used facial landmark detection to track the eye position.
+## Ground truth based on manual labeling (Kinovea)
 
-**The video recorded during the session and the cropped eyes are provided in our contributed mEBAL database**. Additionally, we include **the cognitive temporal signals α, β,γ , δ, θ** provided by the EEG band.
+Three experts previously trained manually marked all the images using the freeware Kinovea (version 0.9.5); these marks are used as ground truth. The main instruction given to the experts was to mark the different points on the joint centers (shoulder, hip, knee, and ankle). Figure Figure [2](./media/JointPoints.png) shows each location of the joint point marked manually. 
 
-The next table shows the most popular eye blink detection databases. As can be seen, all available databases comprise only a few hundred samples, however mEBAL **includes 3000 blink samples**:
+For the body parts covered by other segments, the experts were instructed to mark the anatomical points as if the different body parts covering others were transparent. These points were marked in every frame of each video. When all the frames were labeled, the trajectory of each joint was revised to find and correct possible marking mistakes.
 
-![Sin titulo](http://atvs.ii.uam.es/atvs/github/mEBAL/Table_eye_blink_detection_databases3.jpg)
+# Instructions for Downloading VideoRun2D
 
-This means that is **8 times** larger than HUST-LEBW database, the existing database with largest number of eye blinks. Data is critical to train end-to-end approaches such as those based on neural networks. Furthermore, **mEBAL is unique in to use 3 sensors and to include the attention level**.
-
-
-
-# Instructions for Downloading mEBAL
-
-1) [Download license agreement](https://bidalab.eps.uam.es/static/licenses/mEBAL_License_Agreement.pdf), send by email one signed and scanned copy to **atvs@uam.es** according to the instructions given in point 2.
-
-2) Send an email to **atvs@uam.es**, as follows:
-
-   *Subject:* **[DATABASE: mEBAL]**
-
-   Body: Your name, e-mail, telephone number, organization, postal mail, purpose for which you will use the database, time and date at which you sent the email with the signed      license agreement.
-
-3) Once the email copy of the license agreement has been received at ATVS, you will receive an email with a username, a password, and a time slot to download the database.
-
-4) [Download the database](https://bidalab.eps.uam.es/listdatabases?id=mEBAL#page), for which you will need to provide the authentication information given in step 4. After you finish the download, please notify by email to **atvs@uam.es** that you have successfully completed the transaction.
-
-5) For more information, please contact: **atvs@uam.es**
+Under construction
 
 
 # References
 
-+ [1] Daza, R.; Morales, A.; Fierrez, J.; and Tolosana, R. 2020. mEBAL: A Multimodal Database for Eye Blink Detection and Attention Level Estimation. In *ACM International Conference on Multimodal Interaction*. [[pdf](https://arxiv.org/pdf/2006.05327v2.pdf)]
-
-+ [2] Hernandez-Ortega, J.; Daza, R.; Morales, A.; Fierrez, J.; and Tolosana, R. 2020. Heart Rate Estimation from Face Videos for Student Assessment: Experiments on edBB. In *IEEE Computers, Software, and Applications Conference*. [[pdf](https://arxiv.org/pdf/2006.00825.pdf)]
-
-
-+ [3] Hernandez-Ortega, J.; Daza, R.; Morales, A.; Fierrez, J.; and Ortega Garcia, J. 2019. edBB: Biometrics and Behavior for Assessing Remote Education. In *AAAI Workshop on Artificial Intelligence for Education*. [[pdf](https://arxiv.org/pdf/1912.04786.pdf)]
-
++ [1] Garrido-Lopez, G.; Gomez, L.F; Fierrez, J.; Morales, A.; Tolosana R.; Rueda, J. and Navarro E. 2020. VideoRun2D: Cost-Effective Markerless Motion Capture. Under review in ***. [[pdf](https://arxiv.org/)]
 
 # Contact:
 
