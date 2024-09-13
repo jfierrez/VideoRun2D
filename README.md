@@ -29,7 +29,7 @@ The sprints were recorded using a video camera Panasonic DMC FZ-1000 with a reso
 
 ## Ground truth based on manual labeling (Kinovea)
 
-Three experts previously trained manually marked all the images using the freeware Kinovea (version 0.9.5); these marks are used as ground truth. The main instruction given to the experts was to mark the different points on the joint centers (shoulder, hip, knee, and ankle). Figure Figure [2](./media/JointPoints.png) shows each location of the joint point marked manually. 
+Three experts previously trained manually marked all the images using the freeware Kinovea (version 0.9.5); these marks are used as ground truth. The main instruction given to the experts was to mark the different points on the joint centers (shoulder, hip, knee, and ankle). Figure [2](./media/JointPoints.png) shows each location of the joint point marked manually. 
 
 ![2](./media/JointPoints.png)
 
