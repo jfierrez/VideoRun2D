@@ -5,7 +5,9 @@
 We present VideoRun2D, a new markerless biomechanic sprint analysis system based on deep learning models. This system was initially described technically and scientifically in this [arXiv technical report](https://arxiv.org/abs/2409.10175) and published after peer review at [IAPR](https://iapr.org/)  Intl. Conf. on Pattern Recognition (ICPR) 2024. 
 
 
-https://github.com/user-attachments/assets/de87e72c-eb38-419e-bee8-2c8f09b4525c
+
+https://github.com/user-attachments/assets/481336ae-739e-48fd-9c7c-9b36a2e5303e
+
 
 
 Our proposed VideoRun2D performs markerless body tracking and estimates multiples joint angles across time during a sprint. To achieve effective estimation, the VideoRun2D system comprises five processing modules: video pre-processing, tracking of the articular points, tracking post-processing, biomechanical features generation, and a validation system that employs statistical analysis. 
