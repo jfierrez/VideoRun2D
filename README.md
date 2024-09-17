@@ -2,7 +2,7 @@
 
 ***
 # About
-We present VideoRun2D, a new markerless biomechanic sprint analysis system based on deep learning models. This system was initially described technically and scientifically in this [arXiv technical report](https://arxiv.org/abs/2409.10175) and published after peer review at [IAPR](https://iapr.org/)  Intl. Conf. on Pattern Recognition (ICPR) 2024. 
+We present VideoRun2D, a new markerless biomechanic sprint analysis system based on deep learning models. This system was initially described technically and scientifically in this [arXiv technical report](https://arxiv.org/abs/2409.10175) and published after peer review at (Under Review).
 
 
 
@@ -42,7 +42,7 @@ Under construction
 
 # References
 
-+ [1]  G. Garrido-Lopez, L.F. Gomez, J. Fierrez, A. Morales, R. Tolosana, J. Rueda, and E. Navarro, "VideoRun2D: Cost-Effective Markerless Motion Capture for Sprint Biomechanics", arXiv. [[pdf](https://arxiv.org/pdf/2409.10175)]
++ [1]  G. Garrido-Lopez, L.F. Gomez, J. Fierrez, A. Morales, R. Tolosana, J. Rueda, and E. Navarro, "VideoRun2D: Cost-Effective Markerless Motion Capture for Sprint Biomechanics", arXiv 2409.10175, 2024. [[pdf](https://arxiv.org/pdf/2409.10175)]
 
 # Contact:
 
